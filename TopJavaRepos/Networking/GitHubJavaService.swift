@@ -166,7 +166,7 @@ class GitHubJavaService: GitHubService {
 
 }
 
-private extension GitHubJavaService {
+extension GitHubJavaService {
     
     func getJavaRepositoriesQueryItems(_ page: Int) -> [URLQueryItem] {
         var urlQueryItems = [URLQueryItem]()

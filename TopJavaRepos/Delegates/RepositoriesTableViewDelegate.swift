@@ -14,7 +14,6 @@ class RepositoriesTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
-        tableView.deselectRow(at: indexPath, animated:true)
         parentVC?.selectedRow = indexPath.row
         parentVC?.performSegue(withIdentifier: "showPullRequestsSegueID", sender: self)
     }

@@ -8,4 +8,5 @@ target 'TopJavaRepos' do
 end
 
 target 'TopJavaReposTests' do
+    pod 'SDWebImage', '~> 4.0'
 end

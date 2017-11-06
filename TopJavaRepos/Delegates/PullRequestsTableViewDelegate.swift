@@ -42,5 +42,33 @@ class PullRequestsTableViewDelegate: NSObject, UITableViewDelegate {
             }
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated:true)
+        if let datasource = tableView.dataSource as? PullRequestsTableViewDataSource {
+            var pullRequest: PullRequest?
+
+            if datasource.showOpened {
+                pullRequest = datasource.openedPullRequests[indexPath.row]
+            } else {
+                pullRequest = datasource.closedPullRequests[indexPath.row]
+            }
+
+            if let url = pullRequest?.htmlUrl {
+                self.open(url: url)
+            }
+        }
+    }
+
+    func open(url: String) {
+        if let url = URL(string: url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:],
+                                          completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
     
 }
