@@ -24,8 +24,6 @@ class RepositoriesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var uiimgAvatar: UIImageView!
     
-    @IBOutlet weak var uiactLoading: UIActivityIndicatorView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

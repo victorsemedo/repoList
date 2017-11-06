@@ -14,13 +14,13 @@
         <!--Github JavaPop-->
         <scene sceneID="GyJ-mX-ZxN">
             <objects>
-                <tableViewController id="Fly-wl-l8a" customClass="RepositoriesUIViewController" customModule="TopJavaRepos" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Fly-wl-l8a" customClass="RepositoriesViewController" customModule="TopJavaRepos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="2cs-Bm-TVV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepositoriesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TSRRepoTableViewCell" rowHeight="120" id="u9J-fw-sC5" userLabel="RepositoriesTableViewCell" customClass="RepositoriesTableViewCell" customModule="TopJavaRepos" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepositoriesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositorieCell" rowHeight="120" id="u9J-fw-sC5" userLabel="RepositoriesTableViewCell" customClass="RepositoriesTableViewCell" customModule="TopJavaRepos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u9J-fw-sC5" id="ZWM-Ha-PCf">
@@ -86,21 +86,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u0v-IT-yXB">
-                                                    <rect key="frame" x="29.5" y="0.0" width="40" height="40"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="u0v-IT-yXB" firstAttribute="height" secondItem="qL1-xy-zT8" secondAttribute="height" id="12b-1f-38a"/>
                                                 <constraint firstAttribute="trailing" secondItem="sbZ-gv-HiM" secondAttribute="trailing" id="2pc-2P-gTP"/>
                                                 <constraint firstItem="ygM-PX-4v8" firstAttribute="top" secondItem="qL1-xy-zT8" secondAttribute="bottom" constant="2" id="6Gf-19-krm"/>
-                                                <constraint firstItem="u0v-IT-yXB" firstAttribute="width" secondItem="qL1-xy-zT8" secondAttribute="width" id="CVg-j6-TOp"/>
                                                 <constraint firstItem="ygM-PX-4v8" firstAttribute="leading" secondItem="N82-Cl-N9T" secondAttribute="leading" constant="7" id="Jvs-6b-k02"/>
                                                 <constraint firstAttribute="width" secondItem="N82-Cl-N9T" secondAttribute="height" multiplier="1:1" id="ROj-g3-udO"/>
                                                 <constraint firstItem="qL1-xy-zT8" firstAttribute="centerX" secondItem="N82-Cl-N9T" secondAttribute="centerX" id="Saa-l3-Mhk"/>
-                                                <constraint firstItem="u0v-IT-yXB" firstAttribute="centerX" secondItem="qL1-xy-zT8" secondAttribute="centerX" id="arD-vV-7iQ"/>
-                                                <constraint firstItem="u0v-IT-yXB" firstAttribute="centerY" secondItem="qL1-xy-zT8" secondAttribute="centerY" id="ceh-Bw-7pG"/>
                                                 <constraint firstAttribute="trailing" secondItem="ygM-PX-4v8" secondAttribute="trailing" id="gWg-XC-COc"/>
                                                 <constraint firstItem="sbZ-gv-HiM" firstAttribute="top" secondItem="ygM-PX-4v8" secondAttribute="bottom" id="mc4-eZ-cm5"/>
                                                 <constraint firstItem="sbZ-gv-HiM" firstAttribute="leading" secondItem="N82-Cl-N9T" secondAttribute="leading" id="pDy-1m-eXa"/>
@@ -147,7 +140,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="uiactLoading" destination="u0v-IT-yXB" id="FQa-92-kCZ"/>
                                     <outlet property="uiimgAvatar" destination="qL1-xy-zT8" id="sry-G0-HiR"/>
                                     <outlet property="uilblFork" destination="ecx-DB-fVh" id="2ZQ-cg-gyk"/>
                                     <outlet property="uilblFullName" destination="sbZ-gv-HiM" id="kyu-0A-6Ff"/>
@@ -158,10 +150,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Fly-wl-l8a" id="g7R-C7-K9E"/>
-                            <outlet property="delegate" destination="Fly-wl-l8a" id="MNu-Ja-lIZ"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Github JavaPop" id="c5t-vO-G67"/>
                     <connections>
@@ -181,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PullRequestCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TSRPullRequestTableViewCell" rowHeight="120" id="D2Z-l4-NLm" customClass="PullRequestTableViewCell" customModule="TopJavaRepos" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PullRequestCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PullRequestCell" rowHeight="120" id="D2Z-l4-NLm" customClass="PullRequestTableViewCell" customModule="TopJavaRepos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D2Z-l4-NLm" id="4X5-R7-lmK">
@@ -228,18 +216,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yG8-9o-Vop">
-                                            <rect key="frame" x="26" y="72" width="40" height="40"/>
-                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="ym4-Qc-TIt" secondAttribute="trailing" constant="10" id="08a-3J-qbB"/>
-                                        <constraint firstItem="yG8-9o-Vop" firstAttribute="width" secondItem="zWV-6V-NKa" secondAttribute="width" id="348-Lm-hLY"/>
                                         <constraint firstItem="zWV-6V-NKa" firstAttribute="leading" secondItem="4X5-R7-lmK" secondAttribute="leadingMargin" constant="10" id="5am-bT-wJh"/>
-                                        <constraint firstItem="yG8-9o-Vop" firstAttribute="centerY" secondItem="zWV-6V-NKa" secondAttribute="centerY" id="5dk-Z6-0BK"/>
-                                        <constraint firstItem="yG8-9o-Vop" firstAttribute="centerX" secondItem="zWV-6V-NKa" secondAttribute="centerX" id="8Sg-XB-DaI"/>
                                         <constraint firstItem="aEt-cG-h2T" firstAttribute="leading" secondItem="zWV-6V-NKa" secondAttribute="trailing" constant="10" id="DoY-bC-qHh"/>
-                                        <constraint firstItem="yG8-9o-Vop" firstAttribute="height" secondItem="zWV-6V-NKa" secondAttribute="height" id="V99-5D-YjU"/>
                                         <constraint firstItem="ym4-Qc-TIt" firstAttribute="leading" secondItem="4X5-R7-lmK" secondAttribute="leadingMargin" constant="10" id="VFa-Mg-p5M"/>
                                         <constraint firstItem="aEt-cG-h2T" firstAttribute="top" secondItem="zWV-6V-NKa" secondAttribute="top" id="dGE-eB-RfX"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Z5G-sM-H9z" secondAttribute="trailing" constant="10" id="exk-bc-3c4"/>
@@ -254,7 +235,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="uiactLoading" destination="yG8-9o-Vop" id="Ddu-tH-VJ7"/>
                                     <outlet property="uiimgAvatar" destination="zWV-6V-NKa" id="jC1-Dt-c9c"/>
                                     <outlet property="uilblBody" destination="ym4-Qc-TIt" id="wda-u8-BDq"/>
                                     <outlet property="uilblFullName" destination="dNX-fc-cZZ" id="zjk-A6-gxZ"/>

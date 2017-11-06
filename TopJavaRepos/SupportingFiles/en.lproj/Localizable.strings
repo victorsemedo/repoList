@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TopJavaRepos
+
+  Created by Victor Tavares on 05/11/17.
+  Copyright © 2017 VSemedo. All rights reserved.
+*/
+
+"STR_ERROR" = "Error";
+"STR_OK" = "OK";
+"STR_EMPTY" = "Unable to load data";
+"STR_ERROR_TWICH" = "Error while fetching data from Github Service.";
+"STR_ERROR_DATA" = "Malformed data received from Github Service.";
+"STR_LOADING" = "Loading";
+"STR_OPENED" = "opened";
+"STR_CLOSED" = "closed";

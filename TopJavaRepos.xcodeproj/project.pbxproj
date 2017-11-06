@@ -13,13 +13,27 @@
 		E10068441FACEFA200FC1B5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10068421FACEFA200FC1B5F /* Main.storyboard */; };
 		E10068461FACEFA200FC1B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10068451FACEFA200FC1B5F /* Assets.xcassets */; };
 		E10068491FACEFA200FC1B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10068471FACEFA200FC1B5F /* LaunchScreen.storyboard */; };
-		E10068541FACEFA200FC1B5F /* TopJavaReposTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068531FACEFA200FC1B5F /* TopJavaReposTests.swift */; };
 		E10068621FAD2EC700FC1B5F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068611FAD2EC700FC1B5F /* RepositoriesViewController.swift */; };
 		E10068641FAD2F2800FC1B5F /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068631FAD2F2800FC1B5F /* PullRequestsViewController.swift */; };
 		E10068661FAD4DD300FC1B5F /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068651FAD4DD300FC1B5F /* PullRequestTableViewCell.swift */; };
 		E10068681FAD4E2300FC1B5F /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068671FAD4E2300FC1B5F /* RepositoriesTableViewCell.swift */; };
 		E100686B1FAD534300FC1B5F /* PullRequestTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10068691FAD534300FC1B5F /* PullRequestTableViewHeader.xib */; };
 		E100686D1FAD53A800FC1B5F /* PullRequestTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100686C1FAD53A800FC1B5F /* PullRequestTableViewHeader.swift */; };
+		E10068701FAD58D400FC1B5F /* RepositoriesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100686F1FAD58D400FC1B5F /* RepositoriesTableViewDataSource.swift */; };
+		E10068721FAD590300FC1B5F /* PullRequestsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068711FAD590300FC1B5F /* PullRequestsTableViewDataSource.swift */; };
+		E10068761FAD5AB800FC1B5F /* RepositoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068751FAD5AB800FC1B5F /* RepositoriesTableViewDelegate.swift */; };
+		E10068781FAD5C0B00FC1B5F /* PullRequestsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068771FAD5C0B00FC1B5F /* PullRequestsTableViewDelegate.swift */; };
+		E100687B1FAF95D800FC1B5F /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100687A1FAF95D800FC1B5F /* GitHubService.swift */; };
+		E10068811FAF974E00FC1B5F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068801FAF974E00FC1B5F /* Repository.swift */; };
+		E10068851FAFA2C200FC1B5F /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068841FAFA2C200FC1B5F /* PullRequest.swift */; };
+		E10068871FAFA8CA00FC1B5F /* GitHubJavaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068861FAFA8CA00FC1B5F /* GitHubJavaService.swift */; };
+		E10068891FAFAE0600FC1B5F /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068881FAFAE0600FC1B5F /* GitHubEndpoint.swift */; };
+		E100688B1FAFC58700FC1B5F /* RepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100688A1FAFC58600FC1B5F /* RepositoriesResponse.swift */; };
+		E100688D1FAFCBB300FC1B5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100688C1FAFCBB300FC1B5F /* User.swift */; };
+		E10068931FAFDB9800FC1B5F /* DisplayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068921FAFDB9800FC1B5F /* DisplayError.swift */; };
+		E10068961FAFE8B400FC1B5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E10068981FAFE8B400FC1B5F /* Localizable.strings */; };
+		E10068A41FB03E7100FC1B5F /* StringRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068A31FB03E7100FC1B5F /* StringRegex.swift */; };
+		E10068A61FB0521B00FC1B5F /* GitHubJavaServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10068A51FB0521B00FC1B5F /* GitHubJavaServiceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +60,6 @@
 		E10068481FACEFA200FC1B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E100684A1FACEFA200FC1B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E100684F1FACEFA200FC1B5F /* TopJavaReposTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopJavaReposTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E10068531FACEFA200FC1B5F /* TopJavaReposTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopJavaReposTests.swift; sourceTree = "<group>"; };
 		E10068551FACEFA200FC1B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E10068611FAD2EC700FC1B5F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		E10068631FAD2F2800FC1B5F /* PullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +67,26 @@
 		E10068671FAD4E2300FC1B5F /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
 		E100686A1FAD534300FC1B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PullRequestTableViewHeader.xib; sourceTree = "<group>"; };
 		E100686C1FAD53A800FC1B5F /* PullRequestTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewHeader.swift; sourceTree = "<group>"; };
+		E100686F1FAD58D400FC1B5F /* RepositoriesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewDataSource.swift; sourceTree = "<group>"; };
+		E10068711FAD590300FC1B5F /* PullRequestsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTableViewDataSource.swift; sourceTree = "<group>"; };
+		E10068751FAD5AB800FC1B5F /* RepositoriesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewDelegate.swift; sourceTree = "<group>"; };
+		E10068771FAD5C0B00FC1B5F /* PullRequestsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTableViewDelegate.swift; sourceTree = "<group>"; };
+		E100687A1FAF95D800FC1B5F /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
+		E10068801FAF974E00FC1B5F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		E10068841FAFA2C200FC1B5F /* PullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		E10068861FAFA8CA00FC1B5F /* GitHubJavaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubJavaService.swift; sourceTree = "<group>"; };
+		E10068881FAFAE0600FC1B5F /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
+		E100688A1FAFC58600FC1B5F /* RepositoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesResponse.swift; sourceTree = "<group>"; };
+		E100688C1FAFCBB300FC1B5F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E10068921FAFDB9800FC1B5F /* DisplayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayError.swift; sourceTree = "<group>"; };
+		E10068971FAFE8B400FC1B5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E10068991FAFE8E400FC1B5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PullRequestTableViewHeader.strings"; sourceTree = "<group>"; };
+		E100689A1FAFE8E400FC1B5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		E100689B1FAFE8E400FC1B5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		E100689C1FAFE8E500FC1B5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E100689D1FAFE92400FC1B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E10068A31FB03E7100FC1B5F /* StringRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringRegex.swift; sourceTree = "<group>"; };
+		E10068A51FB0521B00FC1B5F /* GitHubJavaServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubJavaServiceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +143,10 @@
 		E100683D1FACEFA200FC1B5F /* TopJavaRepos */ = {
 			isa = PBXGroup;
 			children = (
+				E10068A21FB03E5A00FC1B5F /* Extensions */,
+				E10068911FAFDB7500FC1B5F /* Protocols */,
+				E10068791FAF957800FC1B5F /* Networking */,
+				E100686E1FAD585300FC1B5F /* Delegates */,
 				E10068601FACEFEF00FC1B5F /* SupportingFiles */,
 				E100685F1FACEFBF00FC1B5F /* ViewControllers */,
 				E100685E1FACEFAA00FC1B5F /* StoryBoards */,
@@ -120,7 +157,7 @@
 		E10068521FACEFA200FC1B5F /* TopJavaReposTests */ = {
 			isa = PBXGroup;
 			children = (
-				E10068531FACEFA200FC1B5F /* TopJavaReposTests.swift */,
+				E100689E1FB0311F00FC1B5F /* Networking */,
 				E10068551FACEFA200FC1B5F /* Info.plist */,
 			);
 			path = TopJavaReposTests;
@@ -151,11 +188,69 @@
 		E10068601FACEFEF00FC1B5F /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				E10068451FACEFA200FC1B5F /* Assets.xcassets */,
 				E100683E1FACEFA200FC1B5F /* AppDelegate.swift */,
+				E10068451FACEFA200FC1B5F /* Assets.xcassets */,
 				E100684A1FACEFA200FC1B5F /* Info.plist */,
+				E10068981FAFE8B400FC1B5F /* Localizable.strings */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E100686E1FAD585300FC1B5F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E100686F1FAD58D400FC1B5F /* RepositoriesTableViewDataSource.swift */,
+				E10068751FAD5AB800FC1B5F /* RepositoriesTableViewDelegate.swift */,
+				E10068711FAD590300FC1B5F /* PullRequestsTableViewDataSource.swift */,
+				E10068771FAD5C0B00FC1B5F /* PullRequestsTableViewDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E10068791FAF957800FC1B5F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E100688E1FAFCE2E00FC1B5F /* Entities */,
+				E100687A1FAF95D800FC1B5F /* GitHubService.swift */,
+				E10068861FAFA8CA00FC1B5F /* GitHubJavaService.swift */,
+				E10068881FAFAE0600FC1B5F /* GitHubEndpoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E100688E1FAFCE2E00FC1B5F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E10068841FAFA2C200FC1B5F /* PullRequest.swift */,
+				E10068801FAF974E00FC1B5F /* Repository.swift */,
+				E100688C1FAFCBB300FC1B5F /* User.swift */,
+				E100688A1FAFC58600FC1B5F /* RepositoriesResponse.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E10068911FAFDB7500FC1B5F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E10068921FAFDB9800FC1B5F /* DisplayError.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E100689E1FB0311F00FC1B5F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E10068A51FB0521B00FC1B5F /* GitHubJavaServiceTest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E10068A21FB03E5A00FC1B5F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E10068A31FB03E7100FC1B5F /* StringRegex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E85091CC2DC8BBD9D3C21D55 /* Frameworks */ = {
@@ -239,6 +334,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = E10068321FACEFA200FC1B5F;
 			productRefGroup = E100683C1FACEFA200FC1B5F /* Products */;
@@ -256,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E10068961FAFE8B400FC1B5F /* Localizable.strings in Resources */,
 				E10068491FACEFA200FC1B5F /* LaunchScreen.storyboard in Resources */,
 				E100686B1FAD534300FC1B5F /* PullRequestTableViewHeader.xib in Resources */,
 				E10068461FACEFA200FC1B5F /* Assets.xcassets in Resources */,
@@ -371,11 +468,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E100686D1FAD53A800FC1B5F /* PullRequestTableViewHeader.swift in Sources */,
+				E10068781FAD5C0B00FC1B5F /* PullRequestsTableViewDelegate.swift in Sources */,
 				E10068681FAD4E2300FC1B5F /* RepositoriesTableViewCell.swift in Sources */,
+				E10068851FAFA2C200FC1B5F /* PullRequest.swift in Sources */,
 				E10068641FAD2F2800FC1B5F /* PullRequestsViewController.swift in Sources */,
 				E10068621FAD2EC700FC1B5F /* RepositoriesViewController.swift in Sources */,
+				E10068871FAFA8CA00FC1B5F /* GitHubJavaService.swift in Sources */,
+				E100688D1FAFCBB300FC1B5F /* User.swift in Sources */,
+				E100687B1FAF95D800FC1B5F /* GitHubService.swift in Sources */,
 				E10068661FAD4DD300FC1B5F /* PullRequestTableViewCell.swift in Sources */,
+				E10068761FAD5AB800FC1B5F /* RepositoriesTableViewDelegate.swift in Sources */,
+				E10068891FAFAE0600FC1B5F /* GitHubEndpoint.swift in Sources */,
+				E10068701FAD58D400FC1B5F /* RepositoriesTableViewDataSource.swift in Sources */,
+				E100688B1FAFC58700FC1B5F /* RepositoriesResponse.swift in Sources */,
 				E100683F1FACEFA200FC1B5F /* AppDelegate.swift in Sources */,
+				E10068931FAFDB9800FC1B5F /* DisplayError.swift in Sources */,
+				E10068A41FB03E7100FC1B5F /* StringRegex.swift in Sources */,
+				E10068721FAD590300FC1B5F /* PullRequestsTableViewDataSource.swift in Sources */,
+				E10068811FAF974E00FC1B5F /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E10068541FACEFA200FC1B5F /* TopJavaReposTests.swift in Sources */,
+				E10068A61FB0521B00FC1B5F /* GitHubJavaServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +512,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E10068431FACEFA200FC1B5F /* Base */,
+				E100689A1FAFE8E400FC1B5F /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -410,6 +521,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E10068481FACEFA200FC1B5F /* Base */,
+				E100689B1FAFE8E400FC1B5F /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -418,8 +530,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				E100686A1FAD534300FC1B5F /* Base */,
+				E10068991FAFE8E400FC1B5F /* pt-BR */,
 			);
 			name = PullRequestTableViewHeader.xib;
+			sourceTree = "<group>";
+		};
+		E10068981FAFE8B400FC1B5F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E10068971FAFE8B400FC1B5F /* en */,
+				E100689C1FAFE8E500FC1B5F /* pt-BR */,
+				E100689D1FAFE92400FC1B5F /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -429,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -486,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

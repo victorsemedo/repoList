@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TopJavaRepos
+
+  Created by Victor Tavares on 05/11/17.
+  Copyright © 2017 VSemedo. All rights reserved.
+*/
+
+"STR_ERROR" = "Erro";
+"STR_OK" = "OK";
+"STR_EMPTY" = "Não foi possivel carregar os dados";
+"STR_ERROR_TWICH" = "Erro ao carregar dados. Verifique a sua conexão.";
+"STR_ERROR_DATA" = "Erro ao carregar dados. Dados mal formatados.";
+"STR_LOADING" = "Carregando";
+"STR_OPENED" = "abertos";
+"STR_CLOSED" = "fechados";

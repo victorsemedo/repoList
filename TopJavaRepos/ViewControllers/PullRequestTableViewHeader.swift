@@ -10,24 +10,26 @@ import UIKit
 
 class PullRequestTableViewHeader: UITableViewHeaderFooterView {
     
-    var vcParent:PullRequestsViewController!
-    
-    let selectedColor = UIColor(red: 213.0/255.0, green: 149.0/255.0, blue: 53.0/255.0, alpha: 1.0)
-    let defaultColor = UIColor.black
+    var parentVC:PullRequestsViewController?
 
     @IBOutlet weak var uiBtnOpened: UIButton!
     
     @IBOutlet weak var uiBtnClosed: UIButton!
     
     @IBAction func showOpenedPullRequests(_ sender: Any) {
-        self.uiBtnOpened.setTitleColor(selectedColor, for: .normal)
-        self.uiBtnClosed.setTitleColor(defaultColor, for: .normal)
-        
+        self.parentVC?.showOpenedPullRequests(true)
+        changeSelectedButton(selected: uiBtnOpened, deselected: uiBtnClosed)
     }
     
     @IBAction func showClosedPullRequests(_ sender: Any) {
-        self.uiBtnOpened.setTitleColor(defaultColor, for: .normal)
-        self.uiBtnClosed.setTitleColor(selectedColor, for: .normal)
+        self.parentVC?.showOpenedPullRequests(false)
+        changeSelectedButton(selected: uiBtnClosed, deselected: uiBtnOpened)
+    }
+    
+    func changeSelectedButton(selected: UIButton, deselected: UIButton) {
+        let selectedColor = UIColor(red: 213.0/255.0, green: 149.0/255.0, blue: 53.0/255.0, alpha: 1.0)
+        selected.setTitleColor(selectedColor, for: .normal)
+        deselected.setTitleColor(UIColor.black, for: .normal)
     }
     
 }
