@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class PullRequestsViewController: UITableViewController, DisplayError {
+class PullRequestsViewController: UITableViewController, DisplayError, GitHubDependencyInjected {
     
     var repository: Repository?
     
@@ -84,7 +84,7 @@ class PullRequestsViewController: UITableViewController, DisplayError {
     func countPullRequests() {
         if let repository = repository {
             self.showProgress()
-            self.parentVC?.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.open.rawValue, callback: { (result) in
+            self.dependencyContainer.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.open.rawValue, callback: { (result) in
                 self.dissmissProgress()
                 switch result {
                 case .success(let count):
@@ -96,7 +96,7 @@ class PullRequestsViewController: UITableViewController, DisplayError {
             })
             
             self.showProgress()
-            self.parentVC?.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.closed.rawValue, callback: { (result) in
+            self.dependencyContainer.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.closed.rawValue, callback: { (result) in
                 self.dissmissProgress()
                 switch result {
                 case .success(let count):
@@ -123,7 +123,7 @@ class PullRequestsViewController: UITableViewController, DisplayError {
         
         if let repository = repository {
             self.showProgress()
-            self.parentVC?.service.fetchRepositoryPullRequests(repository: repository,
+            self.dependencyContainer.service.fetchRepositoryPullRequests(repository: repository,
                                                                state: state,
                                                                page: page) { (result) in
                 self.dissmissProgress()

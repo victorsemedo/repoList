@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class RepositoriesViewController: UITableViewController, DisplayError {
 
@@ -14,16 +15,18 @@ class RepositoriesViewController: UITableViewController, DisplayError {
     
     private var repoDelegate =  RepositoriesTableViewDelegate()
     
-    private var currentPage = 0
-    
     var selectedRow: Int?
     
-    let service = GitHubJavaService()
+    let viewModel = RepositoriesViewModel()
+    
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        fetchRepositories()
+        setUpObservables()
+        showActivityIndicator()
+        viewModel.fetchRepositories()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,27 +35,24 @@ class RepositoriesViewController: UITableViewController, DisplayError {
 
     func setUpTableView() {
         repoDelegate.parentVC = self
-        self.tableView.dataSource = repoDataSource
-        self.tableView.delegate = repoDelegate
-        self.tableView.tableFooterView = UIView()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        tableView.dataSource = repoDataSource
+        tableView.delegate = repoDelegate
+        tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    
-    func fetchRepositories() {
-        showActivityIndicator()
-        currentPage += 1
-        service.fetchRepositories(page: currentPage) { (result) in
+    func setUpObservables() {
+        viewModel.repositoryList.subscribe(onNext: { (repositories) in
             self.dismissActivityIndicator()
-            switch result {
-            case .success(let repositories):
-                self.repoDataSource.repositories.append(contentsOf: repositories)
-                self.tableView.reloadData()
-            case .error(let error):
-                self.currentPage -= 1
-                self.onError(error.localizedDescription)
+            self.repoDataSource.repositories = repositories ?? [Repository]()
+            self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel.error.subscribe(onNext: { (error) in
+            if let error = error {
+                self.onError(error)
             }
-        }
+        }).disposed(by: disposeBag)
     }
     
     func showActivityIndicator() {

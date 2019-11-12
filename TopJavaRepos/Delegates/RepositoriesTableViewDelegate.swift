@@ -22,7 +22,7 @@ class RepositoriesTableViewDelegate: NSObject, UITableViewDelegate {
         let rowCount = tableView.numberOfRows(inSection: indexPath.section)
         
         if indexPath.row == rowCount - 1 {
-            parentVC?.fetchRepositories()
+            parentVC?.viewModel.fetchRepositories()
         }
     }
 
