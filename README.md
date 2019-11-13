@@ -1,9 +1,9 @@
-# Aplicativo de consulta a API do [GitHub](https://github.com)#
+# Aplicativo de consulta a API do [GitHub](https://github.com)
 
-Lista dos repositórios mais populares de Java.
-Detalhes com lista de Pull Requests do repositório.
-Detalhes com contador de pull requests abertos e fechados 
-Direcionamento para browser com a página do Pull Request em questão.
+* Lista dos repositórios mais populares de Java.
+* Detalhes com lista de Pull Requests do repositório.
+* Detalhes com contador de pull requests abertos e fechados 
+* Direcionamento para browser com a página do Pull Request em questão.
 
 ### **Solução Contém** ##
 
