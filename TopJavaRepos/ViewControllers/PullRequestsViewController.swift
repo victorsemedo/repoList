@@ -8,10 +8,11 @@
 
 import UIKit
 import SVProgressHUD
+import RxSwift
 
 class PullRequestsViewController: UITableViewController, DisplayError, GitHubDependencyInjected {
     
-    var repository: Repository?
+    var viewModel: PullRequestsViewModel?
     
     var parentVC: RepositoriesViewController?
     
@@ -21,10 +22,8 @@ class PullRequestsViewController: UITableViewController, DisplayError, GitHubDep
     
     private var pullDelegate = PullRequestsTableViewDelegate()
     
-    private var currentOpenedPage = 0
+    let disposeBag = DisposeBag()
 
-    private var currentClosedPage = 0
-    
     private var showLoadingCount = 0 {
         didSet {
             if oldValue == 0 && showLoadingCount == 1 {
@@ -42,9 +41,10 @@ class PullRequestsViewController: UITableViewController, DisplayError, GitHubDep
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        registerTableHeaderNib()
-        countPullRequests()
-        fetchPullRequests()
+        setUpObservables()
+        showProgress()
+        viewModel?.countPullRequests()
+        viewModel?.fetchPullRequests(withState: PullRequestState.open)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,92 +55,53 @@ class PullRequestsViewController: UITableViewController, DisplayError, GitHubDep
         self.tableView.dataSource = pullDataSource
         self.tableView.delegate = pullDelegate
         self.tableView.tableFooterView = UIView()
-        pullDelegate.parentVC = self
-    }
-    
-    func registerTableHeaderNib() {
         let nib = UINib(nibName: "PullRequestTableViewHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier:"PullRequestTableViewHeader")
+        pullDelegate.parentVC = self
+        self.navigationItem.title = viewModel?.repository.name
+    }
+    
+    func setUpObservables() {
+        viewModel?.openedPR.subscribe(onNext: { (pullRequests) in
+            self.pullDataSource.openedPullRequests = pullRequests ?? [PullRequest]()
+            self.dissmissProgress()
+            self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.closedPR.subscribe(onNext: { (pullRequests) in
+            self.pullDataSource.closedPullRequests = pullRequests ?? [PullRequest]()
+            self.dissmissProgress()
+            self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.countPR.subscribe(onNext: { (count) in
+            self.pullDelegate.opened = count.0
+            self.pullDelegate.closed = count.1
+            self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel?.error.subscribe(onNext: { (error) in
+            if let error = error {
+                self.onError(error)
+            }
+        }).disposed(by: disposeBag)
     }
     
     func showOpenedPullRequests(_ show: Bool) {
         self.pullDataSource.showOpened = show
         
         if self.pullDataSource.closedPullRequests.count == 0 {
-            fetchPullRequests()
+            viewModel?.fetchPullRequests(withState: PullRequestState.closed)
         } else {
             self.tableView.reloadData()
         }
     }
     
-    func showProgress(){
-        showLoadingCount += 1
+    func showProgress(_ count: Int = 1){
+        showLoadingCount += count
     }
     
-    func dissmissProgress() {
-        showLoadingCount -= 1
-    }
-    
-    func countPullRequests() {
-        if let repository = repository {
-            self.showProgress()
-            self.dependencyContainer.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.open.rawValue, callback: { (result) in
-                self.dissmissProgress()
-                switch result {
-                case .success(let count):
-                    self.pullDelegate.opened = count
-                    self.tableView.reloadData()
-                case .error(let error):
-                    self.error = error
-                }
-            })
-            
-            self.showProgress()
-            self.dependencyContainer.service.countRepositoryPullRequests(repository: repository, state: PullRequestState.closed.rawValue, callback: { (result) in
-                self.dissmissProgress()
-                switch result {
-                case .success(let count):
-                    self.pullDelegate.closed = count
-                    self.tableView.reloadData()
-                case .error(let error):
-                    self.error = error
-                }
-            })
-        }
-    }
-    
-    func fetchPullRequests() {
-        var page = 0
-        var state = PullRequestState.open.rawValue
-        if self.pullDataSource.showOpened {
-            currentOpenedPage += 1
-            page = currentOpenedPage
-        } else {
-            currentClosedPage += 1
-            page = currentClosedPage
-            state = PullRequestState.closed.rawValue
-        }
-        
-        if let repository = repository {
-            self.showProgress()
-            self.dependencyContainer.service.fetchRepositoryPullRequests(repository: repository,
-                                                               state: state,
-                                                               page: page) { (result) in
-                self.dissmissProgress()
-                switch result {
-                case .success(let pullRequests):
-                    if self.pullDataSource.showOpened {
-                        self.pullDataSource.openedPullRequests.append(contentsOf: pullRequests)
-                    } else {
-                        self.pullDataSource.closedPullRequests.append(contentsOf: pullRequests)
-                    }
-                    self.tableView.reloadData()
-                    
-                case .error(let error):
-                    self.error = error
-                }
-                
-            }
-        }
+    func dissmissProgress(_ count: Int = 1){
+        showLoadingCount -= count
     }
 }

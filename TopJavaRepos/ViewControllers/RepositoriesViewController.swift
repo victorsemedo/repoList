@@ -81,9 +81,13 @@ extension RepositoriesViewController {
     
     // MARK: -  UIStoryboardSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPullRequestsSegueID" {
-            let pullRequestsVC = (segue.destination as! PullRequestsViewController)
-            pullRequestsVC.repository = repoDataSource.repositories[self.selectedRow!]
+        if segue.identifier == "showPullRequestsSegueID",
+            let pullRequestsVC = segue.destination as? PullRequestsViewController,
+            let selectedRow = self.selectedRow,
+            repoDataSource.repositories.count > selectedRow {
+            let repository = repoDataSource.repositories[selectedRow]
+            let viewModel = PullRequestsViewModel(repository: repository)
+            pullRequestsVC.viewModel = viewModel
             pullRequestsVC.parentVC = self
             let backItem = UIBarButtonItem()
             backItem.title = ""

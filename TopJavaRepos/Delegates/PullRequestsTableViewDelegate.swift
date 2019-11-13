@@ -35,9 +35,10 @@ class PullRequestsTableViewDelegate: NSObject, UITableViewDelegate {
             let rowCount = tableView.numberOfRows(inSection: indexPath.section)
             
             if (datasource.showOpened && rowCount < opened) ||
-               (!datasource.showOpened && rowCount > opened){
+               (!datasource.showOpened && rowCount < closed){
                 if indexPath.row == rowCount - 1 {
-                    parentVC?.fetchPullRequests()
+                    let state = datasource.showOpened ? PullRequestState.open : PullRequestState.closed
+                    parentVC?.viewModel?.fetchPullRequests(withState: state)
                 }
             }
         }
